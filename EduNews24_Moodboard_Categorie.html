@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EduNews24 — Palette Colori per Categoria</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Outfit', sans-serif; background: #F5F0EB; color: #1a1a1a; }
+.container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+
+.header {
+  background: #0F2451;
+  padding: 44px 0 36px;
+  color: #fff;
+}
+.header-badge {
+  display: inline-block;
+  background: #2A5BC7;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 4px;
+  margin-bottom: 14px;
+}
+.header h1 { font-size: 28px; font-weight: 800; }
+.header p { font-size: 14px; font-weight: 300; opacity: 0.75; margin-top: 8px; max-width: 700px; }
+
+.main-title {
+  text-align: center;
+  padding: 40px 0 12px;
+  font-size: 36px;
+  font-weight: 800;
+  color: #1a1a1a;
+}
+.main-subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 36px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* CATEGORY CARD */
+.cat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  padding-bottom: 24px;
+}
+
+.cat-card {
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #e0dcd7;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+}
+
+/* Color strip top */
+.cat-strip {
+  display: flex;
+  height: 8px;
+}
+.cat-strip div { flex: 1; }
+
+/* Card header with category name */
+.cat-header {
+  padding: 16px 22px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #f0efed;
+}
+.cat-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 800;
+  color: #fff;
+  flex-shrink: 0;
+}
+.cat-header h3 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Card body: left description + right color blocks */
+.cat-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.cat-left {
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.cat-left .label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  opacity: 0.5;
+  margin-bottom: 3px;
+}
+.cat-left .cname {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.cat-left .cdesc {
+  font-size: 12px;
+  line-height: 1.55;
+  opacity: 0.85;
+}
+
+.cat-right {
+  display: flex;
+  flex-direction: column;
+}
+.cat-accent {
+  padding: 14px 18px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.cat-accent .aname {
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.cat-accent .adesc {
+  font-size: 11px;
+  line-height: 1.4;
+  opacity: 0.85;
+}
+
+/* Mini preview row */
+.cat-preview {
+  display: flex;
+  gap: 8px;
+  padding: 14px 20px;
+  border-top: 1px solid #f0efed;
+  background: #fafaf8;
+}
+.mini {
+  width: 56px;
+  height: 56px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.2;
+  padding: 4px;
+}
+
+/* FULL WIDTH CARD for the last one if odd */
+.cat-card.full {
+  grid-column: 1 / -1;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.footer {
+  padding: 28px 0;
+  text-align: center;
+  font-size: 12px;
+  color: #aaa;
+  border-top: 1px solid #e0dcd7;
+  background: #fff;
+  margin-top: 24px;
+}
+
+@media (max-width: 768px) {
+  .cat-grid { grid-template-columns: 1fr; }
+  .cat-body { grid-template-columns: 1fr; }
+  .cat-card.full { max-width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="container">
+    <div class="header-badge">Visual Strategy</div>
+    <h1>Palette Colori per Categoria</h1>
+    <p>Ogni categoria del sito ha una palette dedicata per rendere i contenuti social immediatamente riconoscibili nel feed. Il Blu EduNews24 (#1B3A7B) resta presente come firma del brand in ogni template.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="main-title">MOODBOARD</div>
+  <p class="main-subtitle">11 categorie, 11 identità cromatiche. Scrollando il feed, l'utente identifica il tema prima ancora di leggere il titolo.</p>
+
+  <div class="cat-grid">
+
+    <!-- 1. SCUOLA -->
+    <div class="cat-card">
+      <div class="cat-strip">
+        <div style="background:#2D6A4F"></div>
+        <div style="background:#F0F5EC"></div>
+        <div style="background:#FFC233"></div>
+        <div style="background:#1B3A7B"></div>
+      </div>
+      <div class="cat-header">
+        <div class="cat-icon" style="background:#2D6A4F;">S</div>
+        <h3>Scuola</h3>
+      </div>
+      <div class="cat-body">
+        <div class="cat-left" style="background:#F0F5EC; color:#1a1a1a;">
+          <div class="label">Sfondo dominante</div>
+          <div class="cname">Verde Lavagna #F0F5EC</div>
+          <div class="cdesc">Richiama l'ambiente scolastico: lavagna, natura, crescita. Un verde delicato che si distingue immediatamente dal blu brand. Perfetto per normativa, graduatorie, maturità, calendari scolastici.</div>
+        </div>
+        <div class="cat-right">
+          <div class="cat-accent" style="background:#2D6A4F; color:#fff;">
+            <div class="aname">Verde Scuola #2D6A4F</div>
+            <div class="adesc">Titoli, badge e header. Richiama formazione, crescita e istruzione.</div>
+          </div>
+          <div class="cat-accent" style="background:#FFC233; color:#1a1a1a;">
+            <div class="aname">Giallo Matita #FFC233</div>
+            <div class="adesc">Accento caldo per dati, scadenze e CTA. Evoca la matita, il sottolineato.</div>
+          </div>
+        </div>
+      </div>
+      <div class="cat-preview">
+        <div class="mini" style="background:#F0F5EC; color:#2D6A4F;">Post</div>
+        <div class="mini" style="background:#2D6A4F; color:#fff;">Carosello</div>
+        <div class="mini" style="background:#F0F5EC; color:#2D6A4F; border-top:3px solid #FFC233;">Rubrica</div>
+        <div class="mini" style="background:#2D6A4F; color:#FFC233;">Reel</div>
+      </div>
+    </div>
+
+    <!-- 2. UNIVERSITÀ -->
+    <div class="cat-card">
+      <div class="cat-strip">
+        <div style="background:#1B3A7B"></div>
+        <div style="background:#EEF2F9"></div>
+        <div style="background:#6366F1"></div>
+        <div style="background:#0F2451"></div>
+      </div>
+      <div class="cat-header">
+        <div class="cat-icon" style="background:#1B3A7B;">U</div>
+        <h3>Università</h3>
+      </div>
+      <div class="cat-body">
+        <div class="cat-left" style="background:#EEF2F9; color:#1a1a1a;">
+          <div class="label">Sfondo dominante</div>
+          <div class="cname">Blu Ghiaccio #EEF2F9</div>
+          <div class="cdesc">Il colore più vicino al brand: accademico, istituzionale, autorevole. Perfetto per notizie su atenei, borse di studio, riforme universitarie, lauree e TFA.</div>
+        </div>
+        <div class="cat-right">
+          <div class="cat-accent" style="background:#1B3A7B; color:#fff;">
+            <div class="aname">Blu EduNews24 #1B3A7B</div>
+            <div class="adesc">Colore identitario del brand, qui usato come primario. Autorevolezza accademica.</div>
+          </div>
+          <div class="cat-accent" style="background:#6366F1; color:#fff;">
+            <div class="aname">Indaco Ateneo #6366F1</div>
+            <div class="adesc">Accento per differenziare da "Scuola". Evoca innovazione, ricerca, campus.</div>
+          </div>
+        </div>
+      </div>
+      <div class="cat-preview">
+        <div class="mini" style="background:#EEF2F9; color:#1B3A7B;">Post</div>
+        <div class="mini" style="background:#1B3A7B; color:#fff;">Carosello</div>
+        <div class="mini" style="background:#6366F1; color:#fff;">Rubrica</div>
+        <div class="mini" style="background:#0F2451; color:#fff;">Reel</div>
+      </div>
+    </div>
+
+    <!-- 3. RICERCA -->
+    <div class="cat-card">
+      <div class="cat-strip">
+        <div style="background:#0891B2"></div>
+        <div style="background:#ECFEFF"></div>
+        <div style="background:#155E75"></div>
+        <div style="background:#1B3A7B"></div>
+      </div>
+      <div class="cat-header">
+        <div class="cat-icon" style="background:#0891B2;">R</div>
+        <h3>Ricerca</h3>
+      </div>
+      <div class="cat-body">
+        <div class="cat-left" style="background:#ECFEFF; color:#1a1a1a;">
+          <div class="label">Sfondo dominante</div>
+          <div class="cname">Ciano Laboratorio #ECFEFF</div>
+          <div class="cdesc">Un azzurro-ciano freddo che evoca il laboratorio, la sperimentazione, la scienza. Nettamente diverso dal blu caldo di "Università". Per scoperte, studi, innovazione scientifica e paper.</div>
+        </div>
+        <div class="cat-right">
+          <div class="cat-accent" style="background:#0891B2; color:#fff;">
+            <div class="aname">Teal Scienza #0891B2</div>
+            <div class="adesc">Titoli e icone. Comunica precisione, metodo e rigore scientifico.</div>
+          </div>
+          <div class="cat-accent" style="background:#155E75; color:#fff;">
+            <div class="aname">Petrolio Deep #155E75</div>
+            <div class="adesc">Per slide apertura caroselli e overlay video. Profondità e autorevolezza scientifica.</div>
+          </div>
+        </div>
+      </div>
+      <div class="cat-preview">
+        <div class="mini" style="background:#ECFEFF; color:#0891B2;">Post</div>
+        <div class="mini" style="background:#155E75; color:#fff;">Carosello</div>
+        <div class="mini" style="background:#0891B2; color:#fff;">Rubrica</div>
+        <div class="mini" style="background:#ECFEFF; color:#155E75;">Reel</div>
+      </div>
+    </div>
+
+    <!-- 4. MONDO -->
+    <div class="cat-card">
+      <div class="cat-strip">
+        <div style="background:#7C3AED"></div>
+        <div style="background:#F3F0FF"></div>
+        <div style="background:#4C1D95"></div>
+        <div style="background:#1B3A7B"></div>
+      </div>
+      <div class="cat-header">
+        <div class="cat-icon" style="background:#7C3AED;">M</div>
+        <h3>Mondo</h3>
+      </div>
+      <div class="cat-body">
+        <div class="cat-left" style="background:#F3F0FF; color:#1a1a1a;">
+          <div class="label">Sfondo dominante</div>
+          <div class="cname">Viola Chiaro #F3F0FF</div>
+          <div class="cdesc">Il viola evoca geopolitica, globalità, visione ampia. Si distacca completamente dalle categorie "italiane" (Scuola, Università). Per notizie internazionali, normative UE, scenari globali.</div>
+        </div>
+        <div class="cat-right">
+          <div class="cat-accent" style="background:#7C3AED; color:#fff;">
+            <div class="aname">Viola Globale #7C3AED</div>
+            <div class="adesc">Titoli e badge. Comunica ampiezza, scenario internazionale, prospettiva.</div>
+          </div>
+          <div class="cat-accent" style="background:#4C1D95; color:#fff;">
+            <div class="aname">Porpora Profondo #4C1D95</div>
+            <div class="adesc">Slide scure per impatto: apertura caroselli e overlay reel.</div>
+          </div>
+        </div>
+      </div>
+      <div class="cat-preview">
+        <div class="mini" style="background:#F3F0FF; color:#7C3AED;">Post</div>
+        <div class="mini" style="background:#4C1D95; color:#fff;">Carosello</div>
+        <div class="mini" style="background:#7C3AED; color:#fff;">Rubrica</div>
+        <div class="mini" style="background:#F3F0FF; color:#4C1D95;">Reel</div>
+      </div>
+    </div>
+
+    <!-- 5. FORMAZIONE -->
+    <div class="cat-card">
+      <div class="cat-strip">
+        <div style="background:#EA580C"></div>
+        <div style="background:#FFF7ED"></div>
+        <div style="background:#9A3412"></div>
+        <div style="background:#1B3A7B"></div>
+      </div>
+      <div class="cat-header">
+        <div class="cat-icon" style="background:#EA580C;">F</div>
+        <h3>Formazione</h3>
+      </div>
+      <div class="cat-body">
+        <div class="cat-left" style="background:#FFF7ED; color:#1a1a1a;">
+          <div class="label">Sfondo dominante</div>
+          <div class="cname">Arancio Chiaro #FFF7ED</div>
+          <div class="cdesc">L'arancione è il colore della formazione e dell'energia. Un tono caldo e accogliente che segnala corsi, workshop, aggiornamenti professionali, certificazioni e percorsi di crescita.</div>
+        </div>
+        <div class="cat-right">
+          <div class="cat-accent" style="background:#EA580C; color:#fff;">
+            <div class="aname">Arancio Formazione #EA580C</div>
+            <div class="adesc">Titoli e CTA. Energia, attivazione, call to action verso corsi e iscrizioni.</div>
+          </div>
+          <div class="cat-accent" style="background:#9A3412; color:#fff;">
+            <div class="aname">Terracotta #9A3412</div>
+            <div class="adesc">Sfondo slide scure. Calore e profondità per contenuti formativi strutturati.</div>
+          </div>
+        </div>
+      </div>
+      <div class="cat-preview">
+        <div class="mini" style="background:#FFF7ED; color:#EA580C;">Post</div>
+        <div class="mini" style="background:#9A3412; color:#fff;">Carosello</div>
+        <div class="mini" style="background:#EA580C; color:#fff;">Rubrica</div>
+        <div class="mini" style="background:#FFF7ED; color:#9A3412;">Reel</div>
+      </div>
+    </div>
+
+    <!-- 6. EDITORIALI -->
+    <div class="cat-card">
+      <div class="cat-strip">
+        <div style="background:#1E293B"></div>
+        <div style="background:#F8FAFC"></div>
+        <div style="background:#E8464E"></div>
+        <div style="background:#1B3A7B"></div>
+      </div>
+      <div class="cat-header">
+        <div class="cat-icon" style="background:#1E293B;">E</div>
+        <h3>Editoriali</h3>
+      </div>
+      <div class="cat-body">
+        <div class="cat-left" style="background:#F8FAFC; color:#1a1a1a;">
+          <div class="label">Sfondo dominante</div>
+          <div class="cname">Bianco Editoriale #F8FAFC</div>
+          <div class="cdesc">Pulizia totale, come la pagina di un giornale. L'editoriale è opinione autorevole: lo sfondo neutro lascia parlare il testo e il volto del giornalista. Per analisi, commenti, approfondimenti firmati.</div>
+        </div>
+        <div class="cat-right">
+          <div class="cat-accent" style="background:#1E293B; color:#fff;">
+            <div class="aname">Antracite Press #1E293B</div>
+            <div class="adesc">Titoli e cornici. Evoca il giornalismo di qualità, la carta stampata, l'autorevolezza.</div>
+          </div>
+          <div class="cat-accent" style="background:#E8464E; color:#fff;">
+            <div class="aname">Rosso Editoriale #E8464E</div>
+            <div class="adesc">Per la firma, le virgolette e gli highlight. Richiama la matita rossa del direttore.</div>
+          </div>
+        </div>
+      </div>
+      <div class="cat-preview">
+        <div class="mini" style="background:#F8FAFC; color:#1E293B; border-left:3px solid #E8464E;">Post</div>
+        <div class="mini" style="background:#1E293B; color:#fff;">Carosello</div>
+        <div class="mini" style="background:#F8FAFC; color:#1E293B;">Rubrica</div>
+        <div class="mini" style="background:#1E293B; color:#E8464E;">Reel</div>
+      </div>
+    </div>
+
+    <!-- 7. CULTURA -->
+    <div class="cat-card">
+      <div class="cat-strip">
+        <div style="background:#B45309"></div>
+        <div style="background:#FFFBEB"></div>
+        <div style="background:#78350F"></div>
+        <div style="background:#1B3A7B"></div>
+      </div>
+      <div class="cat-header">
+        <div class="cat-icon" style="background:#B45309;">C</div>
+        <h3>Cultura</h3>
+      </div>
+      <div class="cat-body">
+        <div class="cat-left" style="background:#FFFBEB; color:#1a1a1a;">
+          <div class="label">Sfondo dominante</div>
+          <div class="cname">Ambra Chiaro #FFFBEB</div>
+          <div class="cdesc">Un giallo-ambra caldo che evoca la carta antica, i libri, il patrimonio culturale. Elegante e morbido, ideale per contenuti su letteratura, arte, eventi culturali, mostre e anniversari storici.</div>
+        </div>
+        <div class="cat-right">
+          <div class="cat-accent" style="background:#B45309; color:#fff;">
+            <div class="aname">Ambra Cultura #B45309</div>
+            <div class="adesc">Titoli e dettagli. Richiama l'oro dei libri antichi, il calore della conoscenza umanistica.</div>
+          </div>
+          <div class="cat-accent" style="background:#78350F; color:#fff;">
+            <div class="aname">Cuoio Scuro #78350F</div>
+            <div class="adesc">Sfondo premium per slide di apertura. Evoca la copertina in pelle, il museo.</div>
+          </div>
+        </div>
+      </div>
+      <div class="cat-preview">
+        <div class="mini" style="background:#FFFBEB; color:#B45309;">Post</div>
+        <div class="mini" style="background:#78350F; color:#fff;">Carosello</div>
+        <div class="mini" style="background:#B45309; color:#fff;">Rubrica</div>
+        <div class="mini" style="background:#FFFBEB; color:#78350F;">Reel</div>
+      </div>
+    </div>
+
+    <!-- 8. LAVORO -->
+    <div class="cat-card">
+      <div class="cat-strip">
+        <div style="background:#0D9488"></div>
+        <div style="background:#F0FDFA"></div>
+        <div style="background:#134E4A"></div>
+        <div style="background:#1B3A7B"></div>
+      </div>
+      <div class="cat-header">
+        <div class="cat-icon" style="background:#0D9488;">L</div>
+        <h3>Lavoro</h3>
+      </div>
+      <div class="cat-body">
+        <div class="cat-left" style="background:#F0FDFA; color:#1a1a1a;">
+          <div class="label">Sfondo dominante</div>
+          <div class="cname">Teal Chiaro #F0FDFA</div>
+          <div class="cdesc">Il teal è il colore della fiducia professionale e della stabilità. Perfetto per notizie su mercato del lavoro, pensioni, contratti, stipendi, diritti dei lavoratori e analisi occupazionali.</div>
+        </div>
+        <div class="cat-right">
+          <div class="cat-accent" style="background:#0D9488; color:#fff;">
+            <div class="aname">Teal Lavoro #0D9488</div>
+            <div class="adesc">Titoli e badge. Professionalità, affidabilità, competenza. Tono LinkedIn-friendly.</div>
+          </div>
+          <div class="cat-accent" style="background:#134E4A; color:#fff;">
+            <div class="aname">Verde Scuro Pro #134E4A</div>
+            <div class="adesc">Slide scure per dati d'impatto: statistiche occupazione, stipendi, grafici.</div>
+          </div>
+        </div>
+      </div>
+      <div class="cat-preview">
+        <div class="mini" style="background:#F0FDFA; color:#0D9488;">Post</div>
+        <div class="mini" style="background:#134E4A; color:#fff;">Carosello</div>
+        <div class="mini" style="background:#0D9488; color:#fff;">Rubrica</div>
+        <div class="mini" style="background:#F0FDFA; color:#134E4A;">Reel</div>
+      </div>
+    </div>
+
+    <!-- 9. TECNOLOGIA -->
+    <div class="cat-card">
+      <div class="cat-strip">
+        <div style="background:#2563EB"></div>
+        <div style="background:#0F172A"></div>
+        <div style="background:#38BDF8"></div>
+        <div style="background:#1B3A7B"></div>
+      </div>
+      <div class="cat-header">
+        <div class="cat-icon" style="background:#2563EB;">T</div>
+        <h3>Tecnologia</h3>
+      </div>
+      <div class="cat-body">
+        <div class="cat-left" style="background:#0F172A; color:#fff;">
+          <div class="label" style="color:rgba(255,255,255,0.4);">Sfondo dominante</div>
+          <div class="cname">Dark Tech #0F172A</div>
+          <div class="cdesc">Lo sfondo scuro è il codice visivo della tecnologia: coding, AI, digital, innovazione. Unica categoria con sfondo dark di default. Per IA, social media, cybersecurity, startup e innovazione digitale.</div>
+        </div>
+        <div class="cat-right">
+          <div class="cat-accent" style="background:#2563EB; color:#fff;">
+            <div class="aname">Blu Elettrico #2563EB</div>
+            <div class="adesc">Titoli e icone. Digitale, connessione, futuro. Spicca sul dark background.</div>
+          </div>
+          <div class="cat-accent" style="background:#38BDF8; color:#0F172A;">
+            <div class="aname">Ciano Neon #38BDF8</div>
+            <div class="adesc">Highlight dati, numeri, accenti. Effetto "terminal" / codice. Massimo contrasto.</div>
+          </div>
+        </div>
+      </div>
+      <div class="cat-preview">
+        <div class="mini" style="background:#0F172A; color:#2563EB;">Post</div>
+        <div class="mini" style="background:#0F172A; color:#38BDF8;">Carosello</div>
+        <div class="mini" style="background:#2563EB; color:#fff;">Rubrica</div>
+        <div class="mini" style="background:#0F172A; color:#fff;">Reel</div>
+      </div>
+    </div>
+
+    <!-- 10. SELEZIONE PERSONALE -->
+    <div class="cat-card">
+      <div class="cat-strip">
+        <div style="background:#DC2626"></div>
+        <div style="background:#FEF2F2"></div>
+        <div style="background:#7F1D1D"></div>
+        <div style="background:#1B3A7B"></div>
+      </div>
+      <div class="cat-header">
+        <div class="cat-icon" style="background:#DC2626;">SP</div>
+        <h3>Selezione Personale</h3>
+      </div>
+      <div class="cat-body">
+        <div class="cat-left" style="background:#FEF2F2; color:#1a1a1a;">
+          <div class="label">Sfondo dominante</div>
+          <div class="cname">Rosso Chiaro #FEF2F2</div>
+          <div class="cdesc">Il rosso comunica urgenza e azione: perfetto per bandi con scadenza, selezioni aperte, avvisi di concorso. Cattura l'attenzione nel feed e segnala "agisci adesso". Diverso dal rosso "notizia" perché più caldo.</div>
+        </div>
+        <div class="cat-right">
+          <div class="cat-accent" style="background:#DC2626; color:#fff;">
+            <div class="aname">Rosso Bando #DC2626</div>
+            <div class="adesc">Titoli, scadenze e badge "APERTO/CHIUSO". Urgenza e call to action diretta.</div>
+          </div>
+          <div class="cat-accent" style="background:#7F1D1D; color:#fff;">
+            <div class="aname">Bordeaux Istituzionale #7F1D1D</div>
+            <div class="adesc">Sfondo slide premium per dettagli bando. Autorevolezza senza aggressività.</div>
+          </div>
+        </div>
+      </div>
+      <div class="cat-preview">
+        <div class="mini" style="background:#FEF2F2; color:#DC2626;">Post</div>
+        <div class="mini" style="background:#7F1D1D; color:#fff;">Carosello</div>
+        <div class="mini" style="background:#DC2626; color:#fff;">Rubrica</div>
+        <div class="mini" style="background:#FEF2F2; color:#7F1D1D;">Reel</div>
+      </div>
+    </div>
+
+    <!-- 11. INTERPELLI -->
+    <div class="cat-card full">
+      <div class="cat-strip">
+        <div style="background:#CA8A04"></div>
+        <div style="background:#FEFCE8"></div>
+        <div style="background:#713F12"></div>
+        <div style="background:#1B3A7B"></div>
+      </div>
+      <div class="cat-header">
+        <div class="cat-icon" style="background:#CA8A04;">I</div>
+        <h3>Interpelli</h3>
+      </div>
+      <div class="cat-body">
+        <div class="cat-left" style="background:#FEFCE8; color:#1a1a1a;">
+          <div class="label">Sfondo dominante</div>
+          <div class="cname">Giallo Avviso #FEFCE8</div>
+          <div class="cdesc">Il giallo è il colore dell'avviso e della segnalazione. Per interpelli, supplenze, disponibilità e avvisi rapidi. Si distingue dal rosso "Selezione Personale" perché comunica informazione utile, non urgenza. Tono pratico e operativo.</div>
+        </div>
+        <div class="cat-right">
+          <div class="cat-accent" style="background:#CA8A04; color:#fff;">
+            <div class="aname">Ocra Interpello #CA8A04</div>
+            <div class="adesc">Titoli e badge. Segnala disponibilità e opportunità. Chiaro e diretto.</div>
+          </div>
+          <div class="cat-accent" style="background:#713F12; color:#fff;">
+            <div class="aname">Bruno Scuro #713F12</div>
+            <div class="adesc">Sfondo slide scure per dettagli tecnici e tabelle riepilogative.</div>
+          </div>
+        </div>
+      </div>
+      <div class="cat-preview">
+        <div class="mini" style="background:#FEFCE8; color:#CA8A04;">Post</div>
+        <div class="mini" style="background:#713F12; color:#fff;">Carosello</div>
+        <div class="mini" style="background:#CA8A04; color:#fff;">Rubrica</div>
+        <div class="mini" style="background:#FEFCE8; color:#713F12;">Reel</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="footer">
+  <div class="container">
+    EduNews24 — Palette Colori per Categoria · A cura di: Salvo Bilotti
+  </div>
+</div>
+
+</body>
+</html>
